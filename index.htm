@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span class="material-icons">task_alt</span>
+        <h1>Task Manager</h1>
+      </div>
+      <span class="total-badge" id="totalCount">0 tasks</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="input-section">
+      <div class="input-row">
+        <input type="text" id="taskInput" placeholder="What needs to be done?" autocomplete="off" />
+        <select id="priority">
+          <option value="High">🔴 High</option>
+          <option value="Medium" selected>🟡 Medium</option>
+          <option value="Low">🟢 Low</option>
+        </select>
+        <button onclick="addTask()" id="addBtn">
+          <span class="material-icons">add</span> Add Task
+        </button>
+      </div>
+    </div>
+
+    <div class="board">
+      <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" id="todo">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="col-dot todo-dot"></span>
+            <h2>To Do</h2>
+          </div>
+          <span class="count-badge" id="todo-count">0</span>
+        </div>
+        <div class="task-list" id="todo-list"></div>
+      </div>
+
+      <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" id="inprogress">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="col-dot inprogress-dot"></span>
+            <h2>In Progress</h2>
+          </div>
+          <span class="count-badge" id="inprogress-count">0</span>
+        </div>
+        <div class="task-list" id="inprogress-list"></div>
+      </div>
+
+      <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" id="done">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="col-dot done-dot"></span>
+            <h2>Done</h2>
+          </div>
+          <span class="count-badge" id="done-count">0</span>
+        </div>
+        <div class="task-list" id="done-list"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
